@@ -1,12 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { useState, useEffect } from "react";
 import "./index.css";
 import { FaRocket, FaBolt, FaMobileAlt, FaCheckCircle } from "react-icons/fa";
+import { motion } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   return (
     <div className="font-sans">
-      <section className="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center px-6 py-16">
+      <section
+        data-aos="fade-up"
+        className="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center px-6 py-16"
+      >
         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">
           Launch your SaaS with Confidence 🚀
         </h1>
@@ -23,36 +33,59 @@ function App() {
       </section>
 
       <section className="bg-gray-100 py-20 px-6 text-gray-800">
-        <h2 className="text-3xl font-bold mb-6">Why Choose Me?</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-3xl font-bold mb-6">Why Choose Me?</h2>
+        </motion.div>
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div className="flex items-start space-x-3">
-            <FaBolt className="text-yellow-500 mt-1" />
-            <div>
-              <h4 className="font-semibold">Fast Load Times</h4>
-              <p>
-                Optimized React pages that load in under 1s for better
-                conversions.
-              </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex items-start space-x-3">
+              <FaBolt className="text-yellow-500 mt-1" />
+              <div>
+                <h4 className="font-semibold">Fast Load Times</h4>
+                <p>
+                  Optimized React pages that load in under 1s for better
+                  conversions.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-start space-x-3">
-            {/* <FaRocket className="text-yellow-500 mt-1" /> */}
-            🎯
-            <div>
-              <h4 className="font-semibold">Conversion Focused</h4>
-              <p>
-                Designed to get users to take action with clear CTAs and layout.
-              </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex items-start space-x-3">
+              🎯
+              <div>
+                <h4 className="font-semibold">Conversion Focused</h4>
+                <p>
+                  Designed to get users to take action with clear CTAs and
+                  layout.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-start space-x-3">
-            {/* <FaMobileAlt className="text-yellow-500 mt-1" /> */}
-            📱
-            <div>
-              <h4 className="font-semibold">Fully Responsive</h4>
-              <p>Looks great on all devices – desktop, tablet, and mobile.</p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex items-start space-x-3">
+              📱
+              <div>
+                <h4 className="font-semibold">Fully Responsive</h4>
+                <p>Looks great on all devices – desktop, tablet, and mobile.</p>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -88,7 +121,7 @@ function App() {
       </section>
 
       <footer className="py-10 bg-gray-900 text-gray-300 text-center">
-        <p>© 2025 YourName – Built with ❤️ and React</p>
+        <p>© 2025 Nithin Nandakumar – Built with ❤️ and React</p>
       </footer>
     </div>
   );
